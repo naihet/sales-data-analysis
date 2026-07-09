@@ -47,6 +47,9 @@ print(top_products(df))
 print("\n===== Profit by Region =====")
 print(profit_by_region(df))
 
+print("\n===== Monthly Sales =====")
+print(monthly_sales(df))
+
 # ============ Export to .csv ============
 
 OUTPUT_DIR = BASE_DIR / "output"
@@ -63,4 +66,8 @@ top_products(df).to_csv(
 
 profit_by_region(df).to_csv(
     OUTPUT_DIR / "profit_by_region.csv"
+)
+
+monthly_sales(df).to_csv(
+    OUTPUT_DIR / "monthly_sales.csv"
 )

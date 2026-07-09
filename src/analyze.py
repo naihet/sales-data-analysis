@@ -1,3 +1,5 @@
+import pandas as pd
+
 def total_sales(df):
     return df["Sales"].sum()
 
@@ -42,4 +44,18 @@ def profit_by_region(df):
         df.groupby("Region")["Profit"]
         .sum()
         .sort_values(ascending=False)
+    )
+
+def monthly_sales(df):
+
+    df = df.copy()
+
+    df["Order Date"] = pd.to_datetime(df["Order Date"])
+
+    df["Month"] = df["Order Date"].dt.to_period("M")
+
+    return (
+        df.groupby("Month")["Sales"]
+        .sum()
+        .sort_index()
     )
