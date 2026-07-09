@@ -2,6 +2,7 @@ from pathlib import Path
 from load_data import load_sales
 from clean_data import clean_sales
 from analyze import *
+from export import export_csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_PATH = BASE_DIR / "data" / "Sample - Superstore.csv"
@@ -54,20 +55,27 @@ print(monthly_sales(df))
 
 OUTPUT_DIR = BASE_DIR / "output"
 
-OUTPUT_DIR.mkdir(exist_ok=True)
-
-top_customers(df).to_csv(
-    OUTPUT_DIR / "top_customers.csv"
+export_csv(
+    top_customers(df),
+    "top_customers.csv",
+    OUTPUT_DIR
 )
 
-top_products(df).to_csv(
-    OUTPUT_DIR / "top_products.csv"
+
+export_csv(
+    top_products(df),
+    "top_products.csv",
+    OUTPUT_DIR
 )
 
-profit_by_region(df).to_csv(
-    OUTPUT_DIR / "profit_by_region.csv"
+export_csv(
+    profit_by_region(df),
+    "profit_by_region.csv",
+    OUTPUT_DIR
 )
 
-monthly_sales(df).to_csv(
-    OUTPUT_DIR / "monthly_sales.csv"
+export_csv(
+    monthly_sales(df),
+    "monthly_sales.csv",
+    OUTPUT_DIR
 )
