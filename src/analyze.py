@@ -28,3 +28,11 @@ def top_customers(df):
           .sort_values(ascending=False)
           .head(10)
     )
+
+def top_products(df, top_n=10):
+    return (
+        df.groupby("Product Name")["Sales"]
+        .sum()
+        .sort_values(ascending=False)
+        .head(top_n)
+    )

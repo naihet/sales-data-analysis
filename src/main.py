@@ -41,6 +41,9 @@ print(sales_by_region(df))
 print("\n========== Top Customers ==========")
 print(top_customers(df))
 
+print("\n===== Top 10 Products =====")
+print(top_products(df))
+
 # ============ Export to .csv ============
 
 OUTPUT_DIR = BASE_DIR / "output"
@@ -49,4 +52,8 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 top_customers(df).to_csv(
     OUTPUT_DIR / "top_customers.csv"
+)
+
+top_products(df).to_csv(
+    OUTPUT_DIR / "top_products.csv"
 )
