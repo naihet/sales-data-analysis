@@ -36,3 +36,10 @@ def top_products(df, top_n=10):
         .sort_values(ascending=False)
         .head(top_n)
     )
+
+def profit_by_region(df):
+    return (
+        df.groupby("Region")["Profit"]
+        .sum()
+        .sort_values(ascending=False)
+    )
