@@ -20,8 +20,8 @@ Sample Superstore Dataset (Kaggle)
 
 ## Project Structure
 
-sales-data-analysis/
-├── src/
-├── data/
-├── output/
-└── README.md
+```text
+src/
+data/
+output/
+```

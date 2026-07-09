@@ -3,6 +3,7 @@ from load_data import load_sales
 from clean_data import clean_sales
 from analyze import *
 from export import export_csv
+from visualize import save_bar_chart
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_PATH = BASE_DIR / "data" / "Sample - Superstore.csv"
@@ -39,43 +40,84 @@ print(sales_by_category(df))
 print("\n========== Sales by Region ==========")
 print(sales_by_region(df))
 
+OUTPUT_DIR = BASE_DIR / "output" # To output path
+
+# ==================================* Top Customers *==================================
+top_customer = top_customers(df)
 print("\n========== Top Customers ==========")
-print(top_customers(df))
-
-print("\n===== Top 10 Products =====")
-print(top_products(df))
-
-print("\n===== Profit by Region =====")
-print(profit_by_region(df))
-
-print("\n===== Monthly Sales =====")
-print(monthly_sales(df))
-
-# ============ Export to .csv ============
-
-OUTPUT_DIR = BASE_DIR / "output"
+print(top_customer)
 
 export_csv(
-    top_customers(df),
+    top_customer,
     "top_customers.csv",
     OUTPUT_DIR
+) # export csv to output folder
+
+save_bar_chart(
+    top_customer,
+    "Top 10 Customers",
+    "Customer",
+    "Sales",
+    "top_customers.png",
+    OUTPUT_DIR
 )
 
+# ==================================* Top Products *==================================
+top_product = top_products(df)
+print("\n===== Top 10 Products =====")
+print(top_product)
 
 export_csv(
-    top_products(df),
+    top_product,
     "top_products.csv",
     OUTPUT_DIR
-)
+) # export csv to output folder
 
-export_csv(
-    profit_by_region(df),
-    "profit_by_region.csv",
+save_bar_chart(
+    top_product,
+    "Top 10 Products",
+    "Product",
+    "Sales",
+    "top_products.png",
     OUTPUT_DIR
 )
 
+# ==================================* Profit By Region *==================================
+profit_region = profit_by_region(df)
+print("\n===== Profit by Region =====")
+print(profit_region)
+
 export_csv(
-    monthly_sales(df),
+    profit_region,
+    "profit_by_region.csv",
+    OUTPUT_DIR
+) # export csv to output folder
+
+save_bar_chart(
+    profit_region,
+    "Profit by Region",
+    "Region",
+    "Profit",
+    "profit_by_region.png",
+    OUTPUT_DIR
+)
+
+# ==================================* Monthly Sales *==================================
+monthly = monthly_sales(df)
+print("\n===== Monthly Sales =====")
+print(monthly)
+
+export_csv(
+    monthly,
     "monthly_sales.csv",
+    OUTPUT_DIR
+) # export csv to output folder
+
+save_bar_chart(
+    monthly,
+    "Monthly Sales",
+    "Month",
+    "Sales",
+    "monthly_sales.png",
     OUTPUT_DIR
 )
