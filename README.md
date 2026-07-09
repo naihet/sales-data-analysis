@@ -30,12 +30,12 @@ output/
 
 ### Top 10 Products
 
-![Top Products](output/top_products.png)
+![Top Products](images/top_products.png)
 
 ### Profit by Region
 
-![Profit by Region](output/profit_by_region.png)
+![Profit by Region](images/profit_by_region.png)
 
 ### Monthly Sales
 
-![Monthly Sales](output/monthly_sales.png)
+![Monthly Sales](images/monthly_sales.png)

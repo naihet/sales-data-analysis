@@ -41,6 +41,7 @@ print("\n========== Sales by Region ==========")
 print(sales_by_region(df))
 
 OUTPUT_DIR = BASE_DIR / "output" # To output path
+IMAGE_DIR = BASE_DIR / "images" # To images path
 
 # ==================================* Top Customers *==================================
 top_customer = top_customers(df)
@@ -59,7 +60,7 @@ save_bar_chart(
     "Customer",
     "Sales",
     "top_customers.png",
-    OUTPUT_DIR
+    IMAGE_DIR
 )
 
 # ==================================* Top Products *==================================
@@ -79,7 +80,7 @@ save_bar_chart(
     "Product",
     "Sales",
     "top_products.png",
-    OUTPUT_DIR
+    IMAGE_DIR
 )
 
 # ==================================* Profit By Region *==================================
@@ -99,7 +100,7 @@ save_bar_chart(
     "Region",
     "Profit",
     "profit_by_region.png",
-    OUTPUT_DIR
+    IMAGE_DIR
 )
 
 # ==================================* Monthly Sales *==================================
@@ -119,5 +120,5 @@ save_bar_chart(
     "Month",
     "Sales",
     "monthly_sales.png",
-    OUTPUT_DIR
+    IMAGE_DIR
 )
