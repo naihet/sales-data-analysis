@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  sales-analysis:
+    build: .
+    container_name: sales-data-analysis
+
+    volumes:
+      - ./output:/app/output
+
+    restart: "no"
