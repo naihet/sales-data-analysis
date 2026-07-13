@@ -1,11 +1,16 @@
-version: "3.9"
-
 services:
   sales-analysis:
-    build: .
-    container_name: sales-data-analysis
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: sales-analysis
 
     volumes:
       - ./output:/app/output
+
+    working_dir: /app
+
+    command: python src/main.py
 
     restart: "no"
